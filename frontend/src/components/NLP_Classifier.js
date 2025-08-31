@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import './index.css';
 
+// --- App.js content starts here ---
 const App = () => {
   const [keyword, setKeyword] = useState('');
   const [results, setResults] = useState([]);
@@ -149,5 +151,14 @@ Analyze each snippet and provide a structured JSON array. Do not include any tex
     </div>
   );
 };
+// --- App.js content ends here ---
 
-export default App;
+// --- index.js content starts here ---
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+// --- index.js content ends here ---
