@@ -1,0 +1,184 @@
+/* Font Imports */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://www.google.com/search?q=https://fonts.googleapis.com/css2%3Ffamily%3DBebas%2BNeue%26family%3DMontserrat:wght%40400%3B700%26family%3DRoboto:wght%40400%3B700%26family%3DPublic%2BSans:ital,wght%400,100..900%3B1,100..900%26display%3Dswap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap');
+
+
+
+/* --- Root Variables for Dark Theme (Default) --- */
+
+:root {
+
+  --primary-bg: #2e0909;
+
+  --secondary-bg: #3f698e;
+
+  --text-color: #E6F0F3;
+
+  --heading-color: #fff025;
+
+  --brand-color: #d6def5;
+
+  --accent-color: #ffd500;
+
+  --button-bg: #2FA8CC;
+
+  --button-hover-bg: #2389A6;
+
+  --card-bg: #0a0605;
+
+  --shadow-color: rgba(0, 0, 0, 0.4);
+
+}
+
+
+
+/* --- Light Theme Variables --- */
+
+body.light {
+
+  --primary-bg: #bcdee9;
+
+  --secondary-bg: #a4ced9;
+
+  --text-color: #000000;
+
+  --heading-color: #59a0a7;
+
+  --brand-color: #72afb7;
+
+  --accent-color: #43300e;
+  /* Keeping this yellow for contrast */
+
+  --button-bg: #72afb7;
+
+  --button-hover-bg: #59a0a7;
+
+  --card-bg: #ffffff;
+
+  --shadow-color: rgba(0, 0, 0, 0.1);
+
+}
+
+
+
+body {
+
+  /* font-family: 'Roboto', sans-serif; */
+
+  font-family: 'Lato', sans-serif;
+
+  background-color: var(--primary-bg);
+
+  color: var(--text-color);
+
+  margin: 0;
+
+  line-height: 1.6;
+
+  scroll-behavior: smooth;
+
+  transition: background-color 0.5s ease;
+
+}
+
+
+
+.container {
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 0 1rem;
+
+}
+
+
+
+/* --- Utility Classes & Animations --- */
+
+.hidden-section {
+
+  opacity: 0;
+
+  transform: translateY(30px);
+
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+}
+
+
+
+.visible-section {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+
+
+
+@keyframes fadeInDown {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(-20px);
+
+  }
+
+
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+
+
+@keyframes fadeInUp {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+  }
+
+
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+
+
+.loading-message,
+
+.error-message {
+
+  text-align: center;
+
+  padding: 2rem;
+
+  font-size: 1.2rem;
+
+}

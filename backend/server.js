@@ -8,8 +8,40 @@ import csv from "csvtojson"; // for parsing CSV
 // MongoDB schema
 import Disaster from "./models/Disaster.js";
 
-const app = express();
 app.use(cors());
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const User = require('./models/User'); // Import the new User model
+
+const app = express();
+const port = 5000;
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// MongoDB connection
+const mongoUri = "mongodb://localhost:27017/aidflow_ai"; // Ensure your DB name is here
+mongoose.connect(mongoUri)
+  .then(() => console.log('MongoDB connected successfully'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
+// NEW: Registration Route
+app.post('/api/register', async (req, res) => {
+  const { username, email, password } = req.body;
+  try {
+    const user = new User({ username, email, password });
+    await user.save();
+    res.status(201).json({ message: 'User registered successfully!' });
+  } catch (err) {
+    if (err.code === 11000) { // MongoDB duplicate key error
+      res.status(400).json({ message: 'Username or email already exists.' });
+    } else {
+      res.status(500).json({ message: 'Server error during registration.' });
+    }
+  }
+});
 
 // ----------------- EARTHQUAKES -----------------
 app.get("/api/earthquakes", async (req, res) => {

@@ -1,20 +1,16 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedinIn, faXTwitter, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 
-const Footer = () => {
-  return (
-    <footer className="footer">
-      <div className="container footer-content">
-        <p>&copy; 2025 AidFlow AI. All rights reserved.</p>
-        <div className="social-links">
-          <a href="#" aria-label="LinkedIn"><FontAwesomeIcon icon={faLinkedinIn} /></a>
-          <a href="#" aria-label="X (formerly Twitter)"><FontAwesomeIcon icon={faXTwitter} /></a>
-          <a href="#" aria-label="Facebook"><FontAwesomeIcon icon={faFacebookF} /></a>
-        </div>
+const Footer = () => (
+  <footer className="footer">
+    <div className="container footer-content">
+      <p>&copy; 2025 AidFlow AI. All rights reserved.</p>
+      <div className="social-links">
+        <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="X (formerly Twitter)"><i className="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
       </div>
-    </footer>
-  );
-};
+    </div>
+  </footer>
+);
 
 export default Footer;

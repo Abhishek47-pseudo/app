@@ -1,0 +1,137 @@
+/* --- Hero Section --- */
+.hero-section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../assets/heroimg.jpg') center/cover no-repeat;
+  text-align: center;
+  position: relative;
+  padding-top: 80px;
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  opacity: 1;
+}
+
+.hero-section.scrolled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+  transition: all 0.5s ease;
+}
+
+body.light .hero-section::before {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding-bottom: 80px;
+  /* Use flexbox for vertical stacking and centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  margin: 0 0 1rem;
+  animation: fadeInDown 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  font-family: Bebas Neue;
+  text-shadow: -1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+  margin: 0 0 2rem;
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.3s;
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both;
+}
+
+.cta-button:hover {
+  background-color: var(--button-hover-bg);
+  transform: translateY(-3px);
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 4.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.8rem;
+  }
+}
+
+/* --- Scroll Down Arrow & Text --- */
+.scroll-to-know-more {
+  /* This ensures the element is placed correctly below the hero-subtitle */
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  z-index: 10;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.scroll-down-arrow {
+  margin-top: 10px;
+  animation: bounce 2s infinite;
+}
+
+.scroll-down-svg {
+  fill: #ffffff;
+  width: 28px;
+  height: 28px;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
